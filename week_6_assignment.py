@@ -54,10 +54,10 @@ def get_artist_sales_summary(events):
     final_list.sort()
     return final_list
 
-def analyze_ticket_sales(events):
+def analyze_ticket_sales(events, artist_name):
     # artist_name='Imagine Dragons'
     top_earning_event_id=find_top_earning_event(events)
-    imagine_dragons_events=get_events_by_artist(events, 'Imagine Dragons')
+    imagine_dragons_events=get_events_by_artist(events, artist_name)
     artist_summary=get_artist_sales_summary(events)
     
     return top_earning_event_id, imagine_dragons_events, artist_summary
@@ -70,7 +70,8 @@ events = [
     ('EV301', 'Coldplay', 10000, 950000),        
     ('EV206', 'Imagine Dragons', 8500, 680000)    
 ]
-print(analyze_ticket_sales(events))
+print(analyze_ticket_sales(events, 'Imagine Dragons'))
+print()
 
 # ('EV301', ['EV205', 'EV206'], [('Coldplay', 10000), ('Imagine Dragons', 16500), ('The Killers', 9500)])
 events1 = [
@@ -81,4 +82,4 @@ events1 = [
     ('EV206', 'Ed Sheeran', 9000, 720000),
     ('EV401', 'Adele', 20000, 2500000)
 ]
-print(analyze_ticket_sales(events1))
+print(analyze_ticket_sales(events1, 'Taylor Swift'))
